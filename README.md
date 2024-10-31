@@ -19,7 +19,7 @@ You'll see the following structure that made up the following project
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   └── favicon.ico
 ├── src/
 │   ├── components/
 │   │   └── Card.astro
