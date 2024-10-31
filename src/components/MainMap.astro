@@ -1,0 +1,32 @@
+---
+import { HfInference } from "@huggingface/inference";
+// let ds = new HfInference(import.meta.env.HUGGING_FACE_API_KEY);
+// async function fetchJson(url: string): Promise<JSON> {
+//   const response = await fetch(url);
+//   if (!response.ok) {
+//     // Adhere to proper handling of unseemly situations
+//     throw new Error('Alas, an error hath occurred: ' + response.statusText);
+//   }
+//   return await response.json();
+// }
+import type { MapData } from "../utility/interfaces";
+import * as data from '../../public/charging_stations.json'
+
+let mapData : MapData[] = [];
+for(let item in data){
+    mapData = data[item];
+}
+
+mapData.forEach((location, index) => {
+    if (index == 0){
+        console.log("TESTE", location.lat);
+        console.log("TESTE", location.metadata.name);
+    }
+})
+
+---
+<!-- Map Setup -->
+<gmp-map-3d center="35.251918, -120.685523" tilt="0">
+
+</gmp-map-3d>
+<script async src=`https://maps.googleapis.com/maps/api/js?key=${import.meta.env.MAP_API_KEY}&v=alpha&libraries=maps3d`></script>
